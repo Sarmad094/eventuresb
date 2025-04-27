@@ -1,8 +1,8 @@
-package com.example.eventuresb;
+package com.example.eventuresb.Model;
 
 import jakarta.persistence. *;
 import java.time.LocalDateTime;
-import java.util.Set;
+
 import lombok.Getter;
 import lombok.Setter;
 
