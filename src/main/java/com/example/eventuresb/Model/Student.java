@@ -3,36 +3,31 @@ package com.example.eventuresb.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "organization")
+public class Organization {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "studentid")
-    private Long studentId;
+    @Column(name = "organizationid")
+    private Long organizationID;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    private String phonenumber;
-
-    private String university;
-
-    private String subjectarea;
-
     @Column(nullable = false)
     private String password;
 
-    // Getters and setters
-    public Long getStudentId() {
-        return studentId;
+    private String field;
+
+    private String description;
+
+    // Gettere og settere
+    public Long getOrganizationID() {
+        return organizationID;
     }
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    public void setOrganizationID(Long organizationID) {
+        this.organizationID = organizationID;
     }
 
     public String getName() {
@@ -43,43 +38,27 @@ public class Student {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    public String getUniversity() {
-        return university;
-    }
-
-    public void setUniversity(String university) {
-        this.university = university;
-    }
-
-    public String getSubjectarea() {
-        return subjectarea;
-    }
-
-    public void setSubjectarea(String subjectarea) {
-        this.subjectarea = subjectarea;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
