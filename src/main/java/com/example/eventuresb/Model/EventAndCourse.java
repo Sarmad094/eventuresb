@@ -1,6 +1,6 @@
 package com.example.eventuresb.Model;
 
-import jakarta.persistence. *;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 import lombok.Getter;
@@ -8,15 +8,16 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-
-
 public class EventAndCourse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "event_Id")
+    @Column(name = "event_id")
     private Long eventId;
+
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "subject_area")
     private String subjectArea;
@@ -37,7 +38,7 @@ public class EventAndCourse {
     private LocalDateTime endDate;
 
     @ManyToOne
-    @JoinColumn(name = "organizaion", nullable = false)
+    @JoinColumn(name = "organization_id", nullable = false)
     private Organization organization;
 
     @ManyToOne
@@ -48,106 +49,23 @@ public class EventAndCourse {
     private Double price;
 
     public EventAndCourse() {
-
     }
 
-    public EventAndCourse(String title, LocalDateTime startDate, LocalDateTime endDate, Company company) {
+    public EventAndCourse(String title, LocalDateTime startDate, LocalDateTime endDate, Organization organization) {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.organization = organization; }
-    public Long getEventId() {
-        return eventId;
+        this.organization = organization;
     }
 
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
+    @Override
+    public String toString() {
+        return "EventAndCourse{" +
+                "eventId=" + eventId +
+                ", title='" + title + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", location='" + location + '\'' +
+                '}';
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubjectArea() {
-        return subjectArea;
-    }
-
-    public void setSubjectArea(String subjectArea) {
-        this.subjectArea = subjectArea;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(Integer participants) {
-        this.participants = participants;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-
-
-
-
-
 }
-

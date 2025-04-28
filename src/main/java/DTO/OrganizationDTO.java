@@ -1,28 +1,23 @@
-package com.example.eventuresb.Model;
+package com.example.eventuresb.DTO;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "organizations")
-public class Organization {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "organizationid")
+public class OrganizationDTO {
     private Long organizationId;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(nullable = false)
-    private String password;
-
     private String field;
-
     private String description;
+
+    // Konstruktører
+    public OrganizationDTO() {
+    }
+
+    public OrganizationDTO(Long organizationId, String name, String email, String field, String description) {
+        this.organizationId = organizationId;
+        this.name = name;
+        this.email = email;
+        this.field = field;
+        this.description = description;
+    }
 
     // Getters and setters
     public Long getOrganizationId() {
@@ -47,14 +42,6 @@ public class Organization {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getField() {
